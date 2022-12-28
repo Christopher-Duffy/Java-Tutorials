@@ -1,24 +1,25 @@
-package com.duffyLearning.in28minutes1;
+package com.duffyLearning.in28minutes1.examples;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
 import com.duffyLearning.in28minutes1.game.GameRunner;
 
-public class App03GamingSpringBeans {
+@Configuration
+@ComponentScan
+public class DepInjectionLauncher {
+	
+
 	public static void main(String[] args) {
 		
 		try(var context = 
 				new AnnotationConfigApplicationContext
-					(GamingConfiguration.class)) {
+					(DepInjectionLauncher.class)) {
 			
 			context.getBean(GameRunner.class).run();
 		
 		}
 		
-//		//var game = new MarioGame();
-//		//var game = new SuperContraGame();
-//		var game = new PacManGame();
-//		var gameRunner = new GameRunner(game);
-//		gameRunner.run();
 	}
 }

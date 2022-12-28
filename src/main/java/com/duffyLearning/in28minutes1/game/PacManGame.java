@@ -1,5 +1,8 @@
 package com.duffyLearning.in28minutes1.game;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class PacManGame implements GamingConsole {
 	public void up() {
 		System.out.println("eat ghost");
