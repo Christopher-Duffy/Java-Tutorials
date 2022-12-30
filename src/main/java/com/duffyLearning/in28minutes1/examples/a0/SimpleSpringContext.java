@@ -1,24 +1,24 @@
-package com.duffyLearning.in28minutes1.examples;
+package com.duffyLearning.in28minutes1.examples.a0;
+
+import java.util.Arrays;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-import com.duffyLearning.in28minutes1.game.GameRunner;
-
 @Configuration
 @ComponentScan
-public class DepInjectionLauncher {
+public class SimpleSpringContext {
 	
 
 	public static void main(String[] args) {
 		
 		try(var context = 
 				new AnnotationConfigApplicationContext
-					(DepInjectionLauncher.class)) {
+					(SimpleSpringContext.class)) {
 			
-			context.getBean(GameRunner.class).run();
-		
+			Arrays.stream(context.getBeanDefinitionNames())
+				.forEach(System.out::println);
 		}
 		
 	}
